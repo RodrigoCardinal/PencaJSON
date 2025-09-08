@@ -1,0 +1,177 @@
+
+@media (max-width: 1440px) {
+  body {
+    background-color:darkcyan;
+  }
+  .match-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid #222;
+  border-radius: 20px;
+  padding: 16px 24px;
+  margin: 16px 0;
+  max-width: 400px;
+  box-shadow: 0 2px 8px #0001;
+  background-color: white;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  font-size: 20px;
+  font-family:"Comic Sans MS", cursive;
+  
+}
+.flag {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  font-size: 30px;
+}
+.score {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0 24px;
+  letter-spacing: 2px;
+  font-family:"Comic Sans MS", cursive;
+}
+
+.general-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #222;
+  border-radius: 30px;
+  height: 600px;
+  width: 500px;
+  background-color: white;
+  position: relative;
+  top: 50%;
+  left:30%;
+ 
+}   
+}
+
+@media (max-width:768px){
+    body{
+        background-color: green;
+    }
+    .match-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid #222;
+  border-radius: 20px;
+  padding: 16px 24px;
+  margin: 16px 0;
+  max-width: 200px;
+  box-shadow: 0 2px 8px #0001;
+  background-color: white;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  font-size: 10px;
+  font-family:"Comic Sans MS", cursive;
+  
+}
+.flag {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  font-size: 20px;
+}
+.score {
+  font-size: 10px;
+  font-weight: bold;
+  margin: 0 24px;
+  letter-spacing: 2px;
+  font-family:"Comic Sans MS", cursive;
+  font-display: row;
+}
+
+.general-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #222;
+  border-radius: 30px;
+  height: 6 00px;
+  width: 400px;
+  background-color: white;
+  position: relative;
+  top: 50%;
+  left:30%;
+ 
+}   
+}
+@media (max-width:425px){
+    body{
+        background-color: blue;
+    }
+    p {
+    font-size: 14px;
+    }
+    .match-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid #222;
+  border-radius: 20px;
+  padding: 16px 24px;
+  margin: 16px 0;
+  max-width: 400px;
+  box-shadow: 0 2px 8px #0001;
+  background-color: white;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  font-size: 20px;
+  font-family:"Comic Sans MS", cursive;
+  
+}
+.flag {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+  font-size: 30px;
+}
+.score {    
+  font-size: 10px;
+  font-weight: bold;
+  margin: 0 24px;
+  letter-spacing: 2px;
+  font-family:"Comic Sans MS", cursive;
+}
+
+
+.general-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #222;
+  border-radius: 30px;
+  height: 600px;
+  width: 500px;
+  background-color: white;
+  position: relative;
+  top: 50%;
+  left:30%;
+ 
+}   
+
+
+}
+.title{
+    font-family:"Comic Sans MS", cursive;
+}
