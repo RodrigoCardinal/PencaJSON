@@ -1,0 +1,20 @@
+{
+  "equipos": [
+    { 
+    "nombre":"string", 
+    "logo":"string" 
+    }
+
+  ],
+  "partidos": [
+
+    { 
+    "equipoLocatario": "idEquipo", 
+    "equipoVisitante": "idEquipo", 
+    "fecha": "string", 
+    "resultadoLocatario": "number|null", 
+    "resultadoVisitante": "number|null" 
+    }
+  ]
+
+}
