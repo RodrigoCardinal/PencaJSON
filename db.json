@@ -1,5 +1,6 @@
 {
   "equipos": [
+
     { "id": 1, "nombre": "Tigres FC", "logo": "tigres.png", "ciudad": "Monterrey", "fundado": 1960 },
     { "id": 2, "nombre": "Águilas Doradas", "logo": "aguilas.png", "ciudad": "Bogotá", "fundado": 1975 },
     { "id": 3, "nombre": "Leones Rojos", "logo": "leones.png", "ciudad": "Medellín", "fundado": 1982 },
@@ -45,4 +46,3 @@
       "estadio": "Estadio El Campín"
     }
   ]
-}
