@@ -1,47 +1,22 @@
-const matches = [
-    {
-        team1: { name: 'Francia', flag: 'https://flagcdn.com/fr.svg' },
-        team2: { name: 'Australia', flag: 'https://flagcdn.com/au.svg' },
-        result: '2 - 0'
-    },
-    {
-        team1: { name: 'Alemania', flag: 'https://flagcdn.com/de.svg' },
-        team2: { name: 'Corea del Sur', flag: 'https://flagcdn.com/kr.svg' },
-        result: '1 - 1'
-    },
-    {
-        team1: { name: 'Uruguay', flag: 'https://flagcdn.com/uy.svg' },
-        team2: { name: 'Russia', flag: 'https://flagcdn.com/rs.svg' },
-        result: '1 - 1'
-    },
-    {
-        team1: { name: 'Brasil', flag: 'https://flagcdn.com/br.svg' },
-        team2: { name: 'Serbia', flag: 'https://flagcdn.com/rs.svg' },
-        result: '2 - 0'
-    },
-    {
-        team1: { name: 'Argentina', flag: 'https://flagcdn.com/ar.svg' },
-        team2: { name: 'Italia', flag: 'https://flagcdn.com/it.svg' },
-        result: '3 - 1'
-    },
-    {
-        team1: { name: 'Portugal', flag: 'https://flagcdn.com/pt.svg' },
-        team2: { name: 'Ghana', flag: 'https://flagcdn.com/gh.svg' },
-        result: '2 - 1'
-    },
-     {
-        team1: { name: 'Uruguay', flag: 'https://flagcdn.com/uy.svg' },
-        team2: { name: 'Argentina', flag: 'https://flagcdn.com/ar.svg' },
-        result: '3 - 0'
-    }
-];
+let equipos = [];
+let partidos = [];
+
+//URL de la api y endpoints para hacer los get de datos
+const API_BASE_URL = 'http://localhost:3000';
+const ENDPOINTS = {
+    equipos: `${API_BASE_URL}/equipos`,
+    partidos: `${API_BASE_URL}/partidos`
+};
 
 function createMatchCard(match) {
+    const equipo1 = equipos.find(equipo => equipo.id === match.equipoLocatario);
+    const equipo2 = equipos.find(equipo => equipo.id === match.equipoVisitante);
+
     return `
         <div class="match-card" id="match${match.id}">
             <div class="team">
-                <img src="${match.team1.flag}" alt="${match.team1.name}" class="flag">
-                <span class="team-name">${match.team1.name}</span>
+                <img src="${equipo1.flag}" alt="Bandera de ${equipo1.nombre}" class="flag">
+                <span class="team-name">${equipo1.nombre}</span>
             </div>
             <div class="results">
                 <div id="matchResults">
@@ -49,31 +24,71 @@ function createMatchCard(match) {
                     <h2> - </h2>
                     <input id="result2" type="number" min="0" max="20" class="inputResult">
                 </div>
-                <button class="submitResult" onclick="guardarResultado()">Guardar</button>
+                <button class="submitResult" data-matchID="${match.id}" onclick="guardarResultado()">Guardar</button>
             </div>
             <div class="team">
-                <img src="${match.team2.flag}" alt="${match.team2.name}" class="flag">
-                <span class="team-name">${match.team2.name}</span>
+                <img src="${equipo2.flag}" alt="Bandera de ${equipo2.nombre}" class="flag">
+                <span class="team-name">${equipo2.nombre}</span>
             </div>
         </div>
     `;
 }
 
+//Cargar los equipos desde la API
+async function cargarEquipos (){
+    try{
+        console.log('Cargando equipos...');
+        const response = await fetch(ENDPOINTS.equipos);
+        equipos = await response.json();
+        console.log('Equipos cargados:', equipos);
+        return equipos;
+    }
+    catch (error) {
+        console.error('Error al cargar equipos:', error);
+        throw error;
+    }
+}
+
+//Cargar los partidos desde la API
+async function cargarPartidos (){
+    try{
+        console.log('Cargando Partidos...');
+        const response = await fetch(ENDPOINTS.partidos + "?_sort=fecha&_order=asc");
+        partidos= await response.json();
+        console.log("Partidos cargados:",partidos);
+        return partidos;
+    }
+    catch (error){
+        console.error('Error al cargar equipos',error);
+        throw error;
+    }
+}
+
 window.addEventListener('DOMContentLoaded', async () => {
     const container = document.querySelector('.main-container');
-    //matches = await fetchMatches();
-    matches.forEach(match => {
-        container.insertAdjacentHTML('beforeend', createMatchCard(match));
+    await cargarEquipos();
+    await cargarPartidos();
+    partidos.forEach(partido => {
+        container.insertAdjacentHTML('beforeend', createMatchCard(partido));
     });
 });
 
-async function fetchMatches() {
-    fetch('https://localhost:3000/partidos', {method: 'GET'})
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Error fetching matches:', error);
-    });
-}    
+
+function guardarResultado(){
+    const matchID = document.activeElement.getAttribute('data-matchID');
+    const match = partidos.find(p => p.id === matchID);
+    const result1 = document.querySelector(`#match${matchID} #result1`).value;
+    const result2 = document.querySelector(`#match${matchID} #result2`).value;
+    
+    partidos.find(p => p.id === matchID).resultadoLocatario = parseInt(result1);
+    partidos.find(p => p.id === matchID).resultadoVisitante = parseInt(result2);
+
+    fetch(ENDPOINTS.partidos + `/${matchID}`),{
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(match)
+    } 
+    console.log("Resultado guardado:", match);
+}

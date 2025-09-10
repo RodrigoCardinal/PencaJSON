@@ -1,48 +1,49 @@
 {
   "equipos": [
-
-    { "id": 1, "nombre": "Tigres FC", "logo": "tigres.png", "ciudad": "Monterrey", "fundado": 1960 },
-    { "id": 2, "nombre": "Águilas Doradas", "logo": "aguilas.png", "ciudad": "Bogotá", "fundado": 1975 },
-    { "id": 3, "nombre": "Leones Rojos", "logo": "leones.png", "ciudad": "Medellín", "fundado": 1982 },
-    { "id": 4, "nombre": "Toros Negros", "logo": "toros.png", "ciudad": "Ciudad de México", "fundado": 1990 },
-    { "id": 5, "nombre": "Pumas del Sur", "logo": "pumas.png", "ciudad": "Lima", "fundado": 1978 },
-    { "id": 6, "nombre": "Dragones Azules", "logo": "dragones.png", "ciudad": "Quito", "fundado": 1985 }
+    { "id": "1", "nombre": "México", "flag": "https://flagcdn.com/mx.svg", "ciudad": "Monterrey" },
+    { "id": "2", "nombre": "Colombia", "flag": "https://flagcdn.com/co.svg", "ciudad": "Bogotá" },
+    { "id": "3", "nombre": "Chile", "flag": "https://flagcdn.com/cl.svg", "ciudad": "Santiago" },
+    { "id": "4", "nombre": "Argentina", "flag": "https://flagcdn.com/ar.svg", "ciudad": "Buenos Aires" },
+    { "id": "5", "nombre": "Perú", "flag": "https://flagcdn.com/pe.svg", "ciudad": "Lima" },
+    { "id": "6", "nombre": "Ecuador", "flag": "https://flagcdn.com/ec.svg", "ciudad": "Quito" }
   ],
   "partidos": [
     { 
-      "id": 101,
-      "equipoLocatario": 1,
-      "equipoVisitante": 2,
+      "id": "101",
+      "equipoLocatario": "1",
+      "equipoVisitante": "2",
       "fecha": "2025-08-15T18:00:00Z",
-      "resultadoLocatario": 2,
-      "resultadoVisitante": 1,
+      "resultadoLocatario": "2",
+      "resultadoVisitante": "1",
       "estadio": "Estadio Universitario"
     },
     { 
-      "id": 102,
-      "equipoLocatario": 3,
-      "equipoVisitante": 4,
-      "fecha": "2025-08-16T20:30:00Z",
-      "resultadoLocatario": 0,
-      "resultadoVisitante": 0,
+      "id": "102",
+      "equipoLocatario": "3",
+      "equipoVisitante": "4",
+      "fecha": "2022-08-16T20:30:00Z",
+      "resultadoLocatario": "0",
+      "resultadoVisitante": "0",
       "estadio": "Estadio Atanasio"
     },
     { 
-      "id": 103,
-      "equipoLocatario": 5,
-      "equipoVisitante": 6,
-      "fecha": "2025-09-10T19:00:00Z",
+      "id": "103",
+      "equipoLocatario": "5",
+      "equipoVisitante": "6",
+      "fecha": "2020-09-10T19:00:00Z",
       "resultadoLocatario": null,
       "resultadoVisitante": null,
       "estadio": "Estadio Nacional"
     },
     { 
-      "id": 104,
-      "equipoLocatario": 2,
-      "equipoVisitante": 3,
-      "fecha": "2025-09-12T21:00:00Z",
+      "id": "104",
+      "equipoLocatario": "2",
+      "equipoVisitante": "3",
+      "fecha": "2024-09-12T21:00:00Z",
       "resultadoLocatario": null,
       "resultadoVisitante": null,
       "estadio": "Estadio El Campín"
     }
   ]
+}
+
